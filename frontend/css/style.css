@@ -1,0 +1,392 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #e6e6e6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #161b22;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.search-container input {
+    padding: 8px;
+    width: 260px;
+    background: #0d1117;
+    color: white;
+    border: 1px solid #30363d;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    margin-left: 6px;
+}
+
+.auth-buttons button {
+    padding: 8px 14px;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.chart-section {
+    flex: 3;
+    padding-right: 20px;
+}
+
+.watchlist {
+    flex: 1;
+    background: #161b22;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.watch-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.watch-item:hover {
+    background: #161b22;
+}
+
+.watch-stock:hover {
+    color: #58a6ff;
+}
+
+
+button {
+    background: #238636;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.time-filters button {
+    background: transparent;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-filters button:hover {
+    background: #21262d;
+    border-color: #58a6ff;
+}
+
+.time-filters button.active {
+    background: #238636;
+    border-color: #238636;
+    color: #fff;
+}
+
+
+canvas {
+    margin-top: 20px;
+    height: 400px;
+}
+
+.auth-page {
+    max-width: 300px;
+    margin: 100px auto;
+}
+#loadingOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(13,17,23,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#loadingOverlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #444;
+    border-top: 4px solid #2ea043;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.chart-container {
+    position: relative;
+    height: 400px;    
+    width: 100%;
+}
+.alerts-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+}
+
+.alert-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.alert-form input,
+.alert-form select {
+    background: #161b22;
+    color: #e6e6e6;
+    border: 1px solid #30363d;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.alert-form button {
+    background: #2ea043;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.alert-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    border-bottom: 1px solid #30363d;
+    font-size: 14px;
+}
+
+.alerts-section {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.alert-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.alert-form input,
+.alert-form select {
+    flex: 1;
+    background: #161b22;
+    border: 1px solid #30363d;
+    color: #e6e6e6;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.alert-form button {
+    background: #238636;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.alert-form button:hover {
+    background: #2ea043;
+}
+
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.alert-item span {
+    font-weight: 500;
+}
+
+.alert-item span.up {
+    color: #3fb950;
+}
+
+.alert-item span.down {
+    color: #f85149;
+}
+
+.alert-item button {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.alert-item button:hover {
+    color: #f85149;
+}
+
+.muted {
+    color: #8b949e;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.watchlist-section {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.watchlist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.watch-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+}
+
+.watch-item:hover {
+    background: #1c2128;
+}
+
+.watch-stock {
+    font-weight: 600;
+    cursor: pointer;
+    color: #58a6ff;
+}
+
+.watch-stock:hover {
+    text-decoration: underline;
+}
+
+.watch-item button {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.watch-item button:hover {
+    color: #f85149;
+}
+
+.stock-header {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.stock-title h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: #e6edf3;
+}
+
+.price-line {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #8b949e;
+}
+.chart-card {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 16px;
+    height: 420px;          
+    width: 100%;
+    position: relative;
+    margin-top: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#stockChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+.chart-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+button:active {
+    transform: scale(0.97);
+}
+.search-suggestions, .search-history {
+    position: absolute;
+    background: #161b22;
+    border: 1px solid #30363d;
+    width: 300px;
+    z-index: 10;
+    border-radius: 6px;
+}
+
+.suggestion-item, .history-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover, .history-item:hover {
+    background: #21262d;
+}
+
+.hidden {
+    display: none;
+}

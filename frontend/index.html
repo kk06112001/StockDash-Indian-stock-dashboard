@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Stock Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">StockDash</div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search Indian stocks (RELIANCE, TCS)" oninput="debounceSearch()">
+        <button onclick="searchStock()">Search</button>
+           <div class="search-suggestions hidden" id="suggestions"></div>
+<div class="search-history hidden" id="searchHistory"></div>
+
+
+    </div>
+ 
+    <div class="auth-buttons">
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="chart-section">
+        <h3 id="companyName">Search a stock</h3>
+        <div class="stock-header">
+    <div class="stock-title">
+        <div id="priceInfo" class="price-line">—</div>
+    </div>
+</div>
+
+
+        
+
+        <button id="addWatchlistBtn" onclick="toggleWatchlist()">
+            ❤️ Add to Watchlist
+        </button>
+        <div class="alerts-section" id="alertsSection" hidden>
+    <h4>🔔 Price Alerts</h4>
+
+    <div class="alert-form">
+        <input type="number" id="alertPrice" placeholder="Target price (₹)">
+        <select id="alertType">
+            <option value="above">Above</option>
+            <option value="below">Below</option>
+        </select>
+        <button onclick="addPriceAlert()">Add Alert</button>
+    </div>
+
+    <div id="alertsList" class="alerts-list"></div>
+
+    <p id="noAlertsMsg" class="muted hidden">
+        No alerts set for this stock
+    </p>
+</div>
+
+</div>
+<br>
+<div class="time-filters">
+            <button onclick="changePeriod('1mo')" class="active">1M</button>
+            <button onclick="changePeriod('3mo')">3M</button>
+            <button onclick="changePeriod('6mo')">6M</button>
+            <button onclick="changePeriod('1y')">1Y</button>
+            <button onclick="changePeriod('3y')">3Y</button>
+            <button onclick="changePeriod('5y')">5Y</button>
+            <button onclick="changePeriod('10y')">10Y</button>
+            <button onclick="changePeriod('max')">MAX</button>
+        </div>
+
+
+        <<div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loader"></div>
+    <p>Loading stock data...</p>
+</div>
+
+
+
+        <div class="chart-card">
+    <canvas id="stockChart"></canvas>
+</div>
+
+
+    </section>
+    
+
+    <div class="watchlist-section">
+    <h4>⭐ Watchlist</h4>
+
+    <div id="watchlist" class="watchlist-list"></div>
+
+    <p id="noWatchlistMsg" class="muted hidden">
+        Your watchlist is empty
+    </p>
+</div>
+
+
+</main>
+
+<script src="js/stocks.js"></script>
+<script src="js/watchlist.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/alerts.js"></script>
+<script src="js/searchUX.js"></script>
+
+<script>
+    loadWatchlist();
+</script>
+
+</body>
+</html>
