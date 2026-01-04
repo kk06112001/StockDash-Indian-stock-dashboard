@@ -1,8 +1,23 @@
+
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #2ea043;
+    --red: #f85149;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0d1117;
-    color: #e6e6e6;
+    font-family: "Inter", system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
 }
 
 .navbar {
